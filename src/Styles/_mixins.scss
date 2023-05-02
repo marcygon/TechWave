@@ -3,3 +3,11 @@
 //     align-items: center;
 //     flex-direction: column;
 // }
+@mixin card-list-desktop {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+@mixin card-list-phone {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
