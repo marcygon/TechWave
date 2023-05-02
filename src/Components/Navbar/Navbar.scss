@@ -1,3 +1,22 @@
 @import '../../Styles/mixins';
 @import '../../Styles/variables';
 
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    position: absolute;
+    z-index: 1;
+    color: $secondary-color;
+    width: 100%;
+    padding: 20px;
+    cursor: pointer;
+}
+.navbarLi:hover{
+    font-weight: 600;
+}
+.left{
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
