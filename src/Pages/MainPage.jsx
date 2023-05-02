@@ -1,10 +1,14 @@
 import React from 'react'
+import Navbar from '../Components/Navbar/Navbar'
+import Banner from '../Components/Banner/Banner'
+
 
 function MainPage() {
   return (
-    <div>
-      <h1>Im the main page</h1>
-    </div>
+    <>
+      <Navbar/>
+      <Banner/>
+    </>
   )
 }
 

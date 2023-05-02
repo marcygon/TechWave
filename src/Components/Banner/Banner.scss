@@ -1,0 +1,17 @@
+@import '../../Styles/mixins';
+@import '../../Styles/variables';
+
+.banner{
+    @include banner-box;
+}
+.bannerPic{
+    @include banner-pic;
+}
+.bannerText{
+    @include banner-tex;
+    top: 180px;
+    left: 75px;
+    font-size: 12em;
+    font-weight: 900;
+    color: white;
+}
