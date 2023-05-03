@@ -68,30 +68,5 @@ function Navbar() {
     </>
   );
 }
-    {/* <RxHamburgerMenu id='burguerIcon' onClick={handleBurgerClick}/>
-    {navToggle && (
-        <nav id="navbar">
-          <RxCross1 id="crossIcon" onClick={handleCrossClick} />
-          <div className="left">
-            <li className="navbarLi">
-              <AiFillFire className="navbarIcons" />EVENTS
-            </li>
-            <li className="navbarLi">
-              <AiOutlineQuestion className="navbarIcons" />ABOUT
-            </li>
-            <li className="navbarLi">
-              <AiOutlineBook className="navbarIcons" />OUR STORY
-            </li>
-          </div>
-          <div className="right">
-            <li className="navbarLi">
-              <AiOutlineUser className="navbarIcons" />ACCOUNT
-            </li>
-          </div>
-        </nav>
-      )}
-    </>
-  )
-} */}
 
 export default Navbar

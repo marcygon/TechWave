@@ -1,6 +1,6 @@
 import React from 'react'
 import './Slogan.scss'
-import { FaThumbtack, FaUserAstronaut, FaRocket, FaRegHandPeace, FaRegPaperPlane } from "react-icons/fa";
+import { FaThumbtack, FaUserAstronaut, FaRocket } from "react-icons/fa";
 
 function Slogan() {
   return (
