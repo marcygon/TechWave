@@ -3,13 +3,14 @@
 
 .banner{
     @include banner-box;
+    height: 50vh;
 }
 .bannerPic{
     @include banner-pic;
 }
 .bannerText{
     @include banner-tex;
-    top: 180px;
+    top: 150px;
     left: 55px;
     font-size: 3em;
     font-weight: 900;
@@ -19,9 +20,11 @@
 
 @media (min-width: 1100px){
     .banner{
+        height: 100vh;
         width: 98.72vw;
     }
     .bannerText{
+        top: 180px;
         left: 75px;
         font-size: 12em;
 }
