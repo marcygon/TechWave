@@ -15,7 +15,11 @@ function Highlights() {
             {highlights.map((item)=>{
                 return(
                     <div className='highlightCard'>
+                        <div className='cardPicSection'>
+                            <img className='cardPic' src={item.img} alt='highlight-event-image'/>
+                        </div>
                         <p>{item.name}</p>
+                        <p>{item.eventDate}</p>
                     </div>
                 )
             })}

@@ -10,11 +10,20 @@
     height: 100%;
     object-fit: cover;
 }
-@mixin card-list-desktop {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+@mixin card-estructure{
+    width: 90%;
+    display: block;
+    margin: 10px auto;
+    color: $secondary-color;
+    font-weight: bold;
 }
-@mixin card-list-phone {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+@mixin blue-btn{
+    background-color: $tertiary-color;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 3em;
+    border: none;
+    font-weight: bold;
 }
+
+
