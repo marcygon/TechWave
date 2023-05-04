@@ -4,6 +4,8 @@ import Banner from '../Components/Banner/Banner'
 import Slogan from '../Components/Slogan/Slogan'
 import Highlights from '../Components/Highlights/Highlights'
 import StayTunned from '../Components/StayTunned/StayTunned'
+import About from '../Components/About/About'
+import Footer from '../Components/Footer/Footer'
 
 
 function MainPage() {
@@ -14,6 +16,8 @@ function MainPage() {
       <Slogan/>
       <Highlights/>
       <StayTunned/>
+      <About/>
+      <Footer/>
     </>
   )
 }

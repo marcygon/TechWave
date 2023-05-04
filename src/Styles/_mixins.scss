@@ -25,5 +25,8 @@
     border: none;
     font-weight: bold;
 }
-
+@mixin flip{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
 
