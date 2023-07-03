@@ -9,7 +9,14 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import HomeIcon from '@mui/icons-material/Home';
+import DraftsIcon from '@mui/icons-material/Drafts';
 
 function Navbar() {
 
@@ -116,9 +123,26 @@ function Navbar() {
                     horizontal: 'right',
                 }}
             >
-                <MenuItem onClick={handleMenuClose}>Option 1</MenuItem>
-                <MenuItem onClick={handleMenuClose}>Option 2</MenuItem>
-                <MenuItem onClick={handleMenuClose}>Option 3</MenuItem>
+
+                <List>
+                    <ListItem disablePadding onClick={handleMenuClose}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <HomeIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Events" />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding onClick={handleMenuClose}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <DraftsIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="About us" />
+                        </ListItemButton>
+                    </ListItem>
+                </List>
+
             </Menu>
         </>
     )
