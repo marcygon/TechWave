@@ -1,9 +1,10 @@
 import React from 'react'
+import Button from '@mui/material/Button'
 
 function MainPage() {
   return (
     <>
-      <p>hi</p>
+      <Button variant="contained">Hello World</Button>
     </>
   )
 }
