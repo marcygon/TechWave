@@ -15,8 +15,10 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import HomeIcon from '@mui/icons-material/Home';
-import DraftsIcon from '@mui/icons-material/Drafts';
+import EventIcon from '@mui/icons-material/Event';
+import GroupsIcon from '@mui/icons-material/Groups';
+import Divider from '@mui/material/Divider';
+import Avatar from '@mui/material/Avatar';
 
 function Navbar() {
 
@@ -124,19 +126,24 @@ function Navbar() {
                 }}
             >
 
-                <List>
+                <List style={{ width: '300px' }}>
                     <ListItem disablePadding onClick={handleMenuClose}>
                         <ListItemButton>
                             <ListItemIcon>
-                                <HomeIcon />
+                                <Avatar>
+                                    <EventIcon/>
+                                </Avatar>
                             </ListItemIcon>
                             <ListItemText primary="Events" />
                         </ListItemButton>
                     </ListItem>
+                    <Divider />
                     <ListItem disablePadding onClick={handleMenuClose}>
                         <ListItemButton>
                             <ListItemIcon>
-                                <DraftsIcon />
+                                <Avatar>
+                                    <GroupsIcon/>
+                                </Avatar>
                             </ListItemIcon>
                             <ListItemText primary="About us" />
                         </ListItemButton>
