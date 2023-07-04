@@ -9,7 +9,7 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Menu from '@mui/material/Menu';
-
+import HomeIcon from '@mui/icons-material/Home';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -19,6 +19,7 @@ import EventIcon from '@mui/icons-material/Event';
 import GroupsIcon from '@mui/icons-material/Groups';
 import Divider from '@mui/material/Divider';
 import Avatar from '@mui/material/Avatar';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
 
@@ -127,22 +128,37 @@ function Navbar() {
             >
 
                 <List style={{ width: '300px' }}>
-                    <ListItem disablePadding onClick={handleMenuClose}>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <Avatar>
-                                    <EventIcon/>
-                                </Avatar>
-                            </ListItemIcon>
-                            <ListItemText primary="Events" />
-                        </ListItemButton>
-                    </ListItem>
+                    <Link to={'/'} style={{ textDecoration: 'none' }}>
+                        <ListItem disablePadding onClick={handleMenuClose}>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <Avatar>
+                                        <HomeIcon />
+                                    </Avatar>
+                                </ListItemIcon>
+                                <ListItemText primary="Home" />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
+                    <Divider />
+                    <Link to={'/events'} style={{ textDecoration: 'none' }}>
+                        <ListItem disablePadding onClick={handleMenuClose}>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <Avatar>
+                                        <EventIcon />
+                                    </Avatar>
+                                </ListItemIcon>
+                                <ListItemText primary="Events" />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
                     <Divider />
                     <ListItem disablePadding onClick={handleMenuClose}>
                         <ListItemButton>
                             <ListItemIcon>
                                 <Avatar>
-                                    <GroupsIcon/>
+                                    <GroupsIcon />
                                 </Avatar>
                             </ListItemIcon>
                             <ListItemText primary="About us" />
