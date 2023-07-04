@@ -28,25 +28,26 @@ function Highlight() {
     return (
 
         <Box sx={{ flexGrow: 1 }}>
-            <Grid container  spacing={2}>
+            <Grid container spacing={2}>
                 {highLights.map((item) => (
-                    <Link to={`events/${item.id}`} key={item.id}>
                     <Grid item xs={12} sm={6} md={4} key={item.id} container justifyContent="center">
                         <Card sx={{ maxWidth: 345 }}>
                             <CardActionArea>
-                                <CardMedia
-                                    sx={{ height: 140 }}
-                                    image={item.img}
-                                    title={item.name}
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        {item.name}
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        {item.description}
-                                    </Typography>
-                                </CardContent>
+                                <Link to={`events/${item.id}`} style={{ textDecoration: 'none' }}>
+                                    <CardMedia
+                                        sx={{ height: 140 }}
+                                        image={item.img}
+                                        title={item.name}
+                                    />
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="div">
+                                            {item.name}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                            {item.description}
+                                        </Typography>
+                                    </CardContent>
+                                </Link>
                             </CardActionArea>
                             <CardActions>
                                 <IconButton aria-label="add to favorites">
@@ -58,7 +59,6 @@ function Highlight() {
                             </CardActions>
                         </Card>
                     </Grid>
-                    </Link>
                 ))}
             </Grid>
         </Box>
