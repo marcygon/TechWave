@@ -4,6 +4,7 @@ import AboutUs from '../../Components/AboutUs/AboutUs'
 import Highlight from '../../Components/Highlight/Highlight'
 import Navbar from '../../Components/Navbar/Navbar'
 import Slogan from '../../Components/Slogan/Slogan'
+import Footer from '../../Components/Footer/Footer'
 
 function MainPage() {
   return (
@@ -14,6 +15,7 @@ function MainPage() {
         <AboutUs />
         <Highlight />
       </section>
+      <Footer/>
     </>
   )
 }
