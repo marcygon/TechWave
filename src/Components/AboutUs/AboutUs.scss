@@ -1,7 +1,6 @@
 @import '../../Styles/mixins';
-@import '../../Styles/variables';
 
 .about-us{
     @include justified-text;
-    margin: 10px;
+    margin: 20px 0;
 }

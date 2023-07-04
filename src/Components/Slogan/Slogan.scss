@@ -1,7 +1,7 @@
 @import '../../Styles/mixins';
 
 .slogan {
-    margin: 20px;
+    margin-top: 20px;
 
     .slogan-text {
         @include centered-text;

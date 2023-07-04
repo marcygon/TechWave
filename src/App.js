@@ -1,6 +1,6 @@
 import "./Main.scss";
 import { Routes, Route } from 'react-router-dom';
-import MainPage from './Pages/MainPage';
+import MainPage from './Pages/MainPage/MainPage';
 
 function App() {
   return (
