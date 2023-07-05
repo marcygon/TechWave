@@ -24,7 +24,7 @@ function EventInfo() {
     useEffect(() => {
         TechWaveServices.eventById(id)
             .then((data) => setEventId(data))
-    }, [])
+    }, [id])
 
     return (
         <Box sx={{
