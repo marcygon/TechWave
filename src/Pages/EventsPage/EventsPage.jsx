@@ -7,9 +7,9 @@ function EventsPage() {
 
     return (
         <>
-        <Navbar/>
-        <Events/>
-        <Footer/>
+            <Navbar />
+            <Events />
+            <Footer />
         </>
     )
 }
