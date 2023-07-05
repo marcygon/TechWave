@@ -14,17 +14,28 @@ import { CardActionArea } from '@mui/material';
 import TechWaveServices from '../../Services/TechWaveService'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Button from '@mui/material/Button';
+import Alert from '@mui/material/Alert';
+import Collapse from '@mui/material/Collapse';
 
 
 function EventInfo() {
 
 
     const [eventId, setEventId] = useState([])
+    const [showAlert, setShowAlert] = useState(false);
     const { id } = useParams()
     useEffect(() => {
         TechWaveServices.eventById(id)
             .then((data) => setEventId(data))
     }, [id])
+
+    const join = () => {
+        setShowAlert(true);
+        setTimeout(() => {
+            setShowAlert(false);
+        }, 3000);
+    };
+
 
     return (
         <Box sx={{
@@ -68,9 +79,11 @@ function EventInfo() {
                             </IconButton>
                             <Box sx={{ marginLeft: 'auto' }}>
                                 <Button
+                                    className="joinBtn"
                                     variant="contained"
                                     aria-label="join"
                                     startIcon={<AddCircleOutlineIcon />}
+                                    onClick={join}
                                 >
                                     Join {eventId.registersCount}/{eventId.maxParticipants}
                                 </Button>
@@ -79,6 +92,11 @@ function EventInfo() {
                     </Card>
                 </Grid>
             </Grid>
+            <Collapse in={showAlert} timeout={1000}>
+                <Alert severity="success" sx={{ mt: 2 }}>
+                    Event joined
+                </Alert>
+            </Collapse>
         </Box>
     )
 }
