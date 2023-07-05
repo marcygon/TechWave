@@ -8,15 +8,11 @@ import EventInfoPage from "./Pages/EventInfoPage/EventInfoPage";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<MainPage />} />
-        <Route path='/events' element={<EventsPage />} />
-        <Route path='/events/:id' element={<EventInfoPage />} />
-      </Routes>
-      <Footer />
-    </>
+    <Routes>
+      <Route path='/' element={<MainPage />} />
+      <Route path='/events' element={<EventsPage />} />
+      <Route path='/events/:id' element={<EventInfoPage />} />
+    </Routes>
   );
 }
 

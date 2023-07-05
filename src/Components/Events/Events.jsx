@@ -31,7 +31,7 @@ function Events() {
                     <Grid item xs={12} sm={6} md={4} key={item.id} container justifyContent="center">
                         <Card sx={{ maxWidth: 345 }}>
                             <CardActionArea>
-                                <Link to={`events/${item.id}`} style={{ textDecoration: 'none' }}>
+                                <Link to={`/events/${item.id}`} style={{ textDecoration: 'none' }}>
                                     <CardMedia
                                         sx={{ height: 140 }}
                                         image={item.img}
@@ -40,6 +40,9 @@ function Events() {
                                     <CardContent>
                                         <Typography gutterBottom variant="h5" component="div">
                                             {item.name}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                            {item.eventDate}
                                         </Typography>
                                         <Typography variant="body2" color="text.secondary">
                                             {item.description}
