@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,32 +11,54 @@ import ShareIcon from '@mui/icons-material/Share';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
 import { CardActionArea } from '@mui/material';
-import { Link } from 'react-router-dom'
-
-import TechWaveServices from '../../Services/TechWaveService'
+import { Link } from 'react-router-dom';
+import TechWaveServices from '../../Services/TechWaveService';
 
 function Highlight() {
-
-    const [highLights, setHighLights] = useState([])
+    const [highLights, setHighLights] = useState([]);
 
     useEffect(() => {
         TechWaveServices.findHighlights()
             .then((data) => {
-                setHighLights(data)
-            })
+                setHighLights(data);
+            });
     }, []);
 
-    return (
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: '60px',
+        responsive: [
+            {
+                breakpoint: 960,
+                settings: {
+                    slidesToShow: 2,
+                    centerPadding: '40px',
+                },
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    centerPadding: '20px',
+                },
+            },
+        ],
+    };
 
+    return (
         <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={2}>
+            <Slider {...settings}>
                 {highLights.map((item) => (
-                    <Grid item xs={12} sm={6} md={4} key={item.id} container justifyContent="center">
-                        <Card sx={{ maxWidth: 345 }}>
-                            <CardActionArea>
-                                <Link to={`events/${item.id}`} style={{ textDecoration: 'none' }}>
+                    <div key={item.id}>
+                        <Card sx={{ maxWidth: 345, margin: '0 5px' }}>
+                            <Link to={`events/${item.id}`} style={{ textDecoration: 'none' }}>
+                                <CardActionArea>
                                     <CardMedia
                                         sx={{ height: 140 }}
                                         image={item.img}
@@ -47,8 +72,8 @@ function Highlight() {
                                             {item.description}
                                         </Typography>
                                     </CardContent>
-                                </Link>
-                            </CardActionArea>
+                                </CardActionArea>
+                            </Link>
                             <CardActions>
                                 <IconButton aria-label="add to favorites">
                                     <FavoriteIcon />
@@ -58,11 +83,11 @@ function Highlight() {
                                 </IconButton>
                             </CardActions>
                         </Card>
-                    </Grid>
+                    </div>
                 ))}
-            </Grid>
+            </Slider>
         </Box>
     );
 }
 
-export default Highlight
+export default Highlight;
