@@ -9,6 +9,8 @@ function App() {
     <Routes>
       <Route path='/' element={<MainPage />} />
       <Route path='/events' element={<EventsPage />} />
+      <Route path='/available' element={<EventsPage />} />
+      <Route path='/notAvailable' element={<EventsPage />} />
       <Route path='/events/:id' element={<EventInfoPage />} />
     </Routes>
   );
