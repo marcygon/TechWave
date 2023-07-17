@@ -22,6 +22,7 @@ function EventInfo() {
 
     const [eventId, setEventId] = useState([])
     const [showAlert, setShowAlert] = useState(false);
+    const [joined, setJoined] = useState(false);
     const { id } = useParams()
 
     useEffect(() => {
@@ -31,18 +32,34 @@ function EventInfo() {
 
     const join = () => {
 
-        setEventId((prevState) => ({
-            ...prevState,
-            registersCount: prevState.registersCount + 1
-        }));
+        if (!joined) {
+            setEventId((prevState) => ({
+                ...prevState,
+                registersCount: prevState.registersCount + 1
+            }));
 
-        setShowAlert(true)
+            setJoined(true);
 
-        setTimeout(() => {
-            setShowAlert(false);
-        }, 3000);;
+            setShowAlert(true);
+
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 3000);
+        } else {
+            setEventId((prevState) => ({
+                ...prevState,
+                registersCount: prevState.registersCount - 1
+            }));
+
+            setJoined(false);
+
+            setShowAlert(true);
+
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 3000);
+        }
     }
-
 
     return (
         <>
@@ -102,22 +119,20 @@ function EventInfo() {
                 </Grid>
             </Box>
 
-            {/* <Alert severity="error">Event declened</Alert>*/}
             <Stack
                 sx={{
                     width: '100%',
                     position: 'fixed',
-                    bottom: 16,    
+                    bottom: 16,
                 }}
                 spacing={2}
             >
                 {showAlert && (
                     <Alert
-                        severity="success"
-                        onClose={() => setShowAlert(false)}
+                        severity={!joined ? 'info' : 'success'}
                         sx={{ width: '100%' }}
                     >
-                        Event joined!
+                        {!joined ? 'Event declined' : 'Event joined!'}
                     </Alert>
                 )}
             </Stack>
