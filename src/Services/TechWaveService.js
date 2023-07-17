@@ -17,6 +17,16 @@ const techwaveServices = {
             .then((res)=>res.data)
             .catch((err)=>console.log(err))
     },
+    availableEvents(){
+        return axios.get(url + `/available`)
+        .then((res)=>res.data)
+        .catch((err)=>console.log(err))
+    },
+    notAvailableEvents(){
+        return axios.get(url + `/notAvailable`)
+        .then((res)=>res.data)
+        .catch((err)=>console.log(err))
+    },
 }
 
 export default techwaveServices
