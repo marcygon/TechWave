@@ -11,7 +11,7 @@ import NotAvailableEvents from './NotAvailableEvents/NotAvailableEvents';
 
 function Events() {
 
-    const [expanded, setExpanded] = useState(false);
+    const [expanded, setExpanded] = useState('panel1');
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -19,11 +19,11 @@ function Events() {
 
     return (
         <>
-            <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel2bh-content"
-                    id="panel2bh-header"
+                    aria-controls="panel1bh-content"
+                    id="panel1bh-header"
                 >
                     <Typography sx={{ width: '33%', flexShrink: 0 }}>
                         Available
@@ -33,25 +33,25 @@ function Events() {
                     <AvailableEvents />
                 </AccordionDetails>
             </Accordion>
-            <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+            <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel3bh-content"
-                    id="panel3bh-header"
+                    aria-controls="panel2bh-content"
+                    id="panel2bh-header"
                 >
                     <Typography sx={{ width: '33%', flexShrink: 0 }}>
                         Not Available
                     </Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails style={{ filter: 'grayscale(100%)' }}>
                     <NotAvailableEvents/>
                 </AccordionDetails>
             </Accordion>
-            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1bh-content"
-                    id="panel1bh-header"
+                    aria-controls="panel3bh-content"
+                    id="panel3bh-header"
                 >
                     <Typography sx={{ width: '33%', flexShrink: 0 }}>
                         All Events
