@@ -24,8 +24,12 @@ function Events() {
             })
     }, []);
 
-  return (
-    <Box sx={{ flexGrow: 1 }}>
+    return (
+        <Box sx={{
+            flexGrow: 1,
+            marginTop: 2,
+            marginBottom: 5,
+        }}>
             <Grid container spacing={2}>
                 {events.map((item) => (
                     <Grid item xs={12} sm={6} md={4} key={item.id} container justifyContent="center">
@@ -63,7 +67,7 @@ function Events() {
                 ))}
             </Grid>
         </Box>
-  )
+    )
 }
 
 export default Events
