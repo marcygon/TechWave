@@ -20,6 +20,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import Divider from '@mui/material/Divider';
 import Avatar from '@mui/material/Avatar';
 import { Link } from 'react-router-dom';
+import AvatarPic from '../AvatarPic/AvatarPic';
 
 function Navbar() {
 
@@ -162,6 +163,17 @@ function Navbar() {
                                 </Avatar>
                             </ListItemIcon>
                             <ListItemText primary="About us" />
+                        </ListItemButton>
+                    </ListItem>
+                    <Divider />
+                    <ListItem disablePadding onClick={handleMenuClose}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <Avatar>
+                                    <AvatarPic />
+                                </Avatar>
+                            </ListItemIcon>
+                            <ListItemText primary="My profile" />
                         </ListItemButton>
                     </ListItem>
                 </List>
