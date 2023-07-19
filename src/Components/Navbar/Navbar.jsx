@@ -171,6 +171,7 @@ function Navbar() {
                         </ListItem>
                     </Link>
                     <Divider />
+                    <Link to={'/account'} style={{ textDecoration: 'none' }}>
                     <ListItem disablePadding onClick={handleMenuClose}>
                         <ListItemButton>
                             <ListItemIcon>
@@ -181,6 +182,7 @@ function Navbar() {
                             <ListItemText primary="My account" />
                         </ListItemButton>
                     </ListItem>
+                    </Link>
                     <Divider />
                     <ListItem disablePadding onClick={handleMenuClose}>
                         <ListItemButton>

@@ -4,6 +4,7 @@ import MainPage from './Pages/MainPage/MainPage';
 import EventsPage from "./Pages/EventsPage/EventsPage";
 import EventInfoPage from "./Pages/EventInfoPage/EventInfoPage";
 import AboutUsPage from "./Pages/AboutUsPage/AboutUsPage";
+import AccountPage from "./Pages/AccountPage/AccountPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path='/events/notAvailable' element={<EventsPage />} />
       <Route path='/events/:id' element={<EventInfoPage />} />
       <Route path='/aboutUs' element={<AboutUsPage />} />
+      <Route path='/account' element={<AccountPage />} />
     </Routes>
   );
 }
