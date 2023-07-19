@@ -3,26 +3,30 @@ import { styled, alpha } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import AvatarPic from '../AvatarPic/AvatarPic';
 
-import AppBar from '@mui/material/AppBar';
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
+import {
+    AppBar,
+    Avatar,
+    Box,
+    List,
+    Divider,
+    ListItem,
+    ListItemIcon,
+    ListItemButton,
+    ListItemText,
+    Menu,
+    Toolbar,
+    Typography,
+    IconButton,
+    InputBase,
+} from '@mui/material';
+
 import EventIcon from '@mui/icons-material/Event';
 import GroupsIcon from '@mui/icons-material/Groups';
 import HomeIcon from '@mui/icons-material/Home';
-import Logout from '@mui/icons-material/Logout';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Menu from '@mui/material/Menu';
+import LogoutIcon from '@mui/icons-material/Logout';
+import LoginIcon from '@mui/icons-material/Login';
 import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
 import SearchIcon from '@mui/icons-material/Search';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
 
 
 function Navbar() {
@@ -172,26 +176,37 @@ function Navbar() {
                     </Link>
                     <Divider />
                     <Link to={'/account'} style={{ textDecoration: 'none' }}>
-                    <ListItem disablePadding onClick={handleMenuClose}>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <Avatar>
-                                    <AvatarPic />
-                                </Avatar>
-                            </ListItemIcon>
-                            <ListItemText primary="My account" />
-                        </ListItemButton>
-                    </ListItem>
+                        <ListItem disablePadding onClick={handleMenuClose}>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <Avatar>
+                                        <AvatarPic />
+                                    </Avatar>
+                                </ListItemIcon>
+                                <ListItemText primary="My account" />
+                            </ListItemButton>
+                        </ListItem>
                     </Link>
                     <Divider />
                     <ListItem disablePadding onClick={handleMenuClose}>
                         <ListItemButton>
                             <ListItemIcon>
                                 <Avatar>
-                                    <Logout />
+                                    <LogoutIcon />
                                 </Avatar>
                             </ListItemIcon>
                             <ListItemText primary="Logout" />
+                        </ListItemButton>
+                    </ListItem>
+                    <Divider />
+                    <ListItem disablePadding onClick={handleMenuClose}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <Avatar>
+                                    <LoginIcon />
+                                </Avatar>
+                            </ListItemIcon>
+                            <ListItemText primary="Login" />
                         </ListItemButton>
                     </ListItem>
                 </List>
