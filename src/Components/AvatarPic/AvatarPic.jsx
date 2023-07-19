@@ -1,6 +1,6 @@
 import React from 'react'
 import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
+
 
 function AvatarPic() {
 
@@ -12,9 +12,13 @@ function AvatarPic() {
     }
 
     return (
-        <Stack direction="row" spacing={2}>
-            <Avatar {...stringAvatar('Admin A')} />
-        </Stack>
+        <Avatar
+            {...stringAvatar('Admin A')}
+            sx={{
+                width: 80,
+                height: 80, 
+            }}
+        />
     )
 }
 
