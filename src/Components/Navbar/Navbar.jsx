@@ -1,26 +1,29 @@
 import React from 'react';
 import { styled, alpha } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
+import AvatarPic from '../AvatarPic/AvatarPic';
+
 import AppBar from '@mui/material/AppBar';
+import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import Menu from '@mui/material/Menu';
+import Divider from '@mui/material/Divider';
+import EventIcon from '@mui/icons-material/Event';
+import GroupsIcon from '@mui/icons-material/Groups';
 import HomeIcon from '@mui/icons-material/Home';
+import Logout from '@mui/icons-material/Logout';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import EventIcon from '@mui/icons-material/Event';
-import GroupsIcon from '@mui/icons-material/Groups';
-import Divider from '@mui/material/Divider';
-import Avatar from '@mui/material/Avatar';
-import { Link } from 'react-router-dom';
-import AvatarPic from '../AvatarPic/AvatarPic';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Toolbar from '@mui/material/Toolbar';
+import SearchIcon from '@mui/icons-material/Search';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import InputBase from '@mui/material/InputBase';
+
 
 function Navbar() {
 
@@ -173,11 +176,21 @@ function Navbar() {
                                     <AvatarPic />
                                 </Avatar>
                             </ListItemIcon>
-                            <ListItemText primary="My profile" />
+                            <ListItemText primary="My account" />
+                        </ListItemButton>
+                    </ListItem>
+                    <Divider />
+                    <ListItem disablePadding onClick={handleMenuClose}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <Avatar>
+                                    <Logout />
+                                </Avatar>
+                            </ListItemIcon>
+                            <ListItemText primary="Logout" />
                         </ListItemButton>
                     </ListItem>
                 </List>
-
             </Menu>
         </>
     )
