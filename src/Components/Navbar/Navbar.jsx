@@ -175,6 +175,17 @@ function Navbar() {
                         </ListItem>
                     </Link>
                     <Divider />
+                    <ListItem disablePadding onClick={handleMenuClose}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <Avatar>
+                                    <LoginIcon />
+                                </Avatar>
+                            </ListItemIcon>
+                            <ListItemText primary="Login" />
+                        </ListItemButton>
+                    </ListItem>
+                    <Divider/>
                     <Link to={'/account'} style={{ textDecoration: 'none' }}>
                         <ListItem disablePadding onClick={handleMenuClose}>
                             <ListItemButton>
@@ -196,17 +207,6 @@ function Navbar() {
                                 </Avatar>
                             </ListItemIcon>
                             <ListItemText primary="Logout" />
-                        </ListItemButton>
-                    </ListItem>
-                    <Divider />
-                    <ListItem disablePadding onClick={handleMenuClose}>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <Avatar>
-                                    <LoginIcon />
-                                </Avatar>
-                            </ListItemIcon>
-                            <ListItemText primary="Login" />
                         </ListItemButton>
                     </ListItem>
                 </List>
