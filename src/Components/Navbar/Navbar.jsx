@@ -158,16 +158,18 @@ function Navbar() {
                         </ListItem>
                     </Link>
                     <Divider />
-                    <ListItem disablePadding onClick={handleMenuClose}>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <Avatar>
-                                    <GroupsIcon />
-                                </Avatar>
-                            </ListItemIcon>
-                            <ListItemText primary="About us" />
-                        </ListItemButton>
-                    </ListItem>
+                    <Link to={'/aboutUs'} style={{ textDecoration: 'none' }}>
+                        <ListItem disablePadding onClick={handleMenuClose}>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <Avatar>
+                                        <GroupsIcon />
+                                    </Avatar>
+                                </ListItemIcon>
+                                <ListItemText primary="About us" />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
                     <Divider />
                     <ListItem disablePadding onClick={handleMenuClose}>
                         <ListItemButton>
