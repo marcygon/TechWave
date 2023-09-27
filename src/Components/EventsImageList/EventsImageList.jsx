@@ -3,9 +3,11 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import Box from '@mui/material/Box';
 import TechWaveServices from '../../Services/TechWaveService';
+import { useMediaQuery } from '@mui/material';
 
 function EventsImageList() {
     const [events, setEvents] = useState([]);
+    const isLargeScreen = useMediaQuery('(min-width: 1200px)');
 
     useEffect(() => {
         TechWaveServices.getAllEvents().then((data) => {
@@ -18,12 +20,16 @@ function EventsImageList() {
         marginLeft: 0.5,
         marginRight: 0.5,
     }}>
-        <ImageList sx={{ width: 382, height: 450 }} cols={2} rowHeight={164}>
+        <ImageList 
+            sx={{ width: '100%' }} 
+            cols={isLargeScreen ? 4 : 2} 
+            rowHeight={isLargeScreen ? 300 : 164}
+        >
             {events.map((item) => (
                 <ImageListItem key={item.img}>
                     <img
-                        src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                        srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                        src={`${item.img}?w=${isLargeScreen ? 300 : 164}&h=${isLargeScreen ? 300 : 164}&fit=crop&auto=format`}
+                        srcSet={`${item.img}?w=${isLargeScreen ? 300 : 164}&h=${isLargeScreen ? 300 : 164}&fit=crop&auto=format&dpr=2 2x`}
                         alt={item.name}
                         loading="lazy" />
                 </ImageListItem>
