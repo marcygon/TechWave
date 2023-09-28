@@ -27,6 +27,12 @@ const techwaveServices = {
         .then((res)=>res.data)
         .catch((err)=>console.log(err))
     },
+    eventsByCategory(id){
+        return axios.get(url + `/category/${id}` )
+        .then((res)=>res.data)
+        .catch((err)=>console.log(err))
+    },
+    
 }
 
 export default techwaveServices
