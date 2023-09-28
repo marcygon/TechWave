@@ -16,15 +16,15 @@ function AccountInfo() {
             alignItems: 'center',
         }}>
             <AvatarPic />
-            <Typography 
-            variant="body1" 
-            color="text.secondary"
-            sx={{ marginTop: 2 }}>
+            <Typography
+                variant="body1"
+                color="text.secondary"
+                sx={{ marginTop: 2 }}>
                 Full name
             </Typography>
-            <Typography 
-            variant="body1" 
-            color="text.secondary">
+            <Typography
+                variant="body1"
+                color="text.secondary">
                 email
             </Typography>
         </Box>

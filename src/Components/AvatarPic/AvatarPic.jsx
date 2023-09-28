@@ -16,7 +16,7 @@ function AvatarPic() {
             {...stringAvatar('Admin A')}
             sx={{
                 width: 80,
-                height: 80, 
+                height: 80,
             }}
         />
     )

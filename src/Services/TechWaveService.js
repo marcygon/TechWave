@@ -3,45 +3,45 @@ import axios from 'axios'
 const url = 'http://localhost:8080/events'
 const techwaveServices = {
 
-    getAllEvents(){
+    getAllEvents() {
         return axios
-        .get(url)
-        .then((res)=>res.data)
-        .catch((err)=>console.log(err))
-    },
-    
-    findHighlights(){
-        return axios
-        .get(url + `/highlights`)
-        .then((res)=>res.data)
-        .catch((err)=>console.log(err))
+            .get(url)
+            .then((res) => res.data)
+            .catch((err) => console.log(err))
     },
 
-    eventById(id){
+    findHighlights() {
         return axios
-        .get(url + `/${id}` )
-        .then((res)=>res.data)
-        .catch((err)=>console.log(err))
+            .get(url + `/highlights`)
+            .then((res) => res.data)
+            .catch((err) => console.log(err))
     },
 
-    availableEvents(){
+    eventById(id) {
         return axios
-        .get(url + `/available`)
-        .then((res)=>res.data)
-        .catch((err)=>console.log(err))
+            .get(url + `/${id}`)
+            .then((res) => res.data)
+            .catch((err) => console.log(err))
     },
 
-    notAvailableEvents(){
+    availableEvents() {
         return axios
-        .get(url + `/notAvailable`)
-        .then((res)=>res.data)
-        .catch((err)=>console.log(err))
+            .get(url + `/available`)
+            .then((res) => res.data)
+            .catch((err) => console.log(err))
     },
-    
-    eventsByCategory(id){
-        return axios.get(url + `/category/${id}` )
-        .then((res)=>res.data)
-        .catch((err)=>console.log(err))
+
+    notAvailableEvents() {
+        return axios
+            .get(url + `/notAvailable`)
+            .then((res) => res.data)
+            .catch((err) => console.log(err))
+    },
+
+    eventsByCategory(id) {
+        return axios.get(url + `/category/${id}`)
+            .then((res) => res.data)
+            .catch((err) => console.log(err))
     },
 
 }

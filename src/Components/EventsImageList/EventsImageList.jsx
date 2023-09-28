@@ -15,28 +15,28 @@ function EventsImageList() {
         });
     }, []);
 
-  return (
-    <Box sx={{
-        marginLeft: 0.5,
-        marginRight: 0.5,
-    }}>
-        <ImageList 
-            sx={{ width: '100%' }} 
-            cols={isLargeScreen ? 4 : 2} 
-            rowHeight={isLargeScreen ? 300 : 164}
-        >
-            {events.map((item) => (
-                <ImageListItem key={item.img}>
-                    <img
-                        src={`${item.img}?w=${isLargeScreen ? 300 : 164}&h=${isLargeScreen ? 300 : 164}&fit=crop&auto=format`}
-                        srcSet={`${item.img}?w=${isLargeScreen ? 300 : 164}&h=${isLargeScreen ? 300 : 164}&fit=crop&auto=format&dpr=2 2x`}
-                        alt={item.name}
-                        loading="lazy" />
-                </ImageListItem>
-            ))}
-        </ImageList>
-    </Box>
-  )
+    return (
+        <Box sx={{
+            marginLeft: 0.5,
+            marginRight: 0.5,
+        }}>
+            <ImageList
+                sx={{ width: '100%' }}
+                cols={isLargeScreen ? 4 : 2}
+                rowHeight={isLargeScreen ? 300 : 164}
+            >
+                {events.map((item) => (
+                    <ImageListItem key={item.img}>
+                        <img
+                            src={`${item.img}?w=${isLargeScreen ? 300 : 164}&h=${isLargeScreen ? 300 : 164}&fit=crop&auto=format`}
+                            srcSet={`${item.img}?w=${isLargeScreen ? 300 : 164}&h=${isLargeScreen ? 300 : 164}&fit=crop&auto=format&dpr=2 2x`}
+                            alt={item.name}
+                            loading="lazy" />
+                    </ImageListItem>
+                ))}
+            </ImageList>
+        </Box>
+    )
 }
 
 export default EventsImageList

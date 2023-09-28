@@ -15,10 +15,10 @@ function AvailableEvents() {
 
     useEffect(() => {
         TechWaveServices.availableEvents()
-          .then((data) => {
-            setAvailableEvents(data);
-          })
-      }, []);
+            .then((data) => {
+                setAvailableEvents(data);
+            })
+    }, []);
 
     return (
         <Box sx={{

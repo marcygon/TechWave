@@ -47,7 +47,7 @@ function EventsPage() {
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails style={{ filter: 'grayscale(100%)' }}>
-                    <NotAvailableEvents/>
+                    <NotAvailableEvents />
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>

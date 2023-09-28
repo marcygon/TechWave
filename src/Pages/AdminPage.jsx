@@ -7,7 +7,7 @@ function AdminPage() {
     return (
         <>
             <Navbar />
-            <AdminDashboard/>
+            <AdminDashboard />
             <Footer />
         </>
     )

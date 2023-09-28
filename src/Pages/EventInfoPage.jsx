@@ -8,12 +8,10 @@ function EventInfoPage() {
     return (
         <>
             <Navbar />
-            <EventInfo/>
+            <EventInfo />
             <Footer />
         </>
     )
 }
-
-
 
 export default EventInfoPage

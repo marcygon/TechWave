@@ -4,7 +4,7 @@ import AllEvents from '../Events/AllEvents'
 function AdminDashboard() {
   return (
     <>
-      <AllEvents/>
+      <AllEvents />
     </>
   )
 }

@@ -6,6 +6,7 @@ import EventInfoPage from "./Pages/EventInfoPage";
 import AboutUsPage from "./Pages/AboutUsPage";
 import AccountPage from "./Pages/AccountPage";
 import AdminPage from "./Pages/AdminPage";
+import LoginPage from "./Pages/LoginPage";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       <Route path='/events/:id' element={<EventInfoPage />} />
       <Route path='/aboutUs' element={<AboutUsPage />} />
       <Route path='/account' element={<AccountPage />} />
-      <Route path='/admin' element={<AdminPage/>} />
+      <Route path='/admin' element={<AdminPage />} />
+      <Route path='/login' element={<LoginPage />} />
     </Routes>
   );
 }

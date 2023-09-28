@@ -15,10 +15,10 @@ function NotAvailableEvents() {
 
     useEffect(() => {
         TechWaveServices.notAvailableEvents()
-          .then((data) => {
-            setNotAvailableEvents(data);
-          })
-      }, []);
+            .then((data) => {
+                setNotAvailableEvents(data);
+            })
+    }, []);
 
     return (
         <Box sx={{

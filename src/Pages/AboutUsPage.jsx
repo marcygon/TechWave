@@ -4,7 +4,6 @@ import Footer from '../Components/Footer/Footer';
 import AboutUs from '../Components/AboutUs/AboutUs';
 import EventsImageList from '../Components/EventsImageList/EventsImageList';
 
-
 function AboutUsPage() {
     return (
         <>
