@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../../Components/Navbar/Navbar';
-import Footer from '../../Components/Footer/Footer';
-import EventInfo from '../../Components/Events/EventInfo';
+import Navbar from '../Components/Navbar/Navbar';
+import Footer from '../Components/Footer/Footer';
+import EventInfo from '../Components/Events/EventInfo';
 
 function EventInfoPage() {
 

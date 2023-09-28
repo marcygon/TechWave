@@ -1,11 +1,11 @@
 import "./Main.scss";
 import { Routes, Route } from 'react-router-dom';
-import MainPage from './Pages/MainPage/MainPage';
-import EventsPage from "./Pages/EventsPage/EventsPage";
-import EventInfoPage from "./Pages/EventInfoPage/EventInfoPage";
-import AboutUsPage from "./Pages/AboutUsPage/AboutUsPage";
-import AccountPage from "./Pages/AccountPage/AccountPage";
-import AdminPage from "./Pages/AdminPage/AdminPage";
+import MainPage from './Pages/MainPage';
+import EventsPage from "./Pages/EventsPage";
+import EventInfoPage from "./Pages/EventInfoPage";
+import AboutUsPage from "./Pages/AboutUsPage";
+import AccountPage from "./Pages/AccountPage";
+import AdminPage from "./Pages/AdminPage";
 
 function App() {
   return (

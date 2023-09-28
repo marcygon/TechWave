@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import Navbar from '../../Components/Navbar/Navbar'
-import Footer from '../../Components/Footer/Footer'
+import Navbar from '../Components/Navbar/Navbar'
+import Footer from '../Components/Footer/Footer'
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import AllEvents from '../../Components/Events/AllEvents';
-import AvailableEvents from '../../Components/Events/AvailableEvents';
-import NotAvailableEvents from '../../Components/Events/NotAvailableEvents';
+import AllEvents from '../Components/Events/AllEvents';
+import AvailableEvents from '../Components/Events/AvailableEvents';
+import NotAvailableEvents from '../Components/Events/NotAvailableEvents';
 
 
 function EventsPage() {
