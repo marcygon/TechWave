@@ -14,7 +14,7 @@ function LoginPage() {
         <>
             <Navbar />
             <Box
-                component="form"
+                component='form'
                 sx={{
                     '& > :not(style)': { m: 1, width: '25ch' },
                     display: 'flex',
@@ -33,7 +33,7 @@ function LoginPage() {
                     type={showPassword ? 'text' : 'password'}
                     label="Password"
                 />
-                <Button variant="outlined">sign in</Button>
+                <Button variant="contained">sign in</Button>
                 <p>Don't have an account? <Link to={'/register'}>Register here</Link></p>
             </Box>
             <Footer />

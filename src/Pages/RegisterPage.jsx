@@ -32,7 +32,7 @@ function RegisterPage() {
                     type={showPassword ? 'text' : 'password'}
                     label="Password"
                 />
-                <Button variant="outlined">register</Button>
+                <Button variant="contained">register</Button>
             </Box>
             <Footer />
         </>
