@@ -3,10 +3,9 @@ import Navbar from '../Components/Navbar/Navbar'
 import Footer from '../Components/Footer/Footer'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
-function LoginPage() {
+function RegisterPage() {
 
     const showPassword = false;
 
@@ -33,12 +32,11 @@ function LoginPage() {
                     type={showPassword ? 'text' : 'password'}
                     label="Password"
                 />
-                <Button variant="outlined">sign in</Button>
-                <p>Don't have an account? <Link to={'/register'}>Register here</Link></p>
+                <Button variant="outlined">register</Button>
             </Box>
             <Footer />
         </>
     )
 }
 
-export default LoginPage
+export default RegisterPage
