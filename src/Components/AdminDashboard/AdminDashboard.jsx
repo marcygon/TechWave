@@ -3,9 +3,9 @@ import AllEvents from '../Events/AllEvents/AllEvents'
 
 function AdminDashboard() {
   return (
-    <div>
+    <>
       <AllEvents/>
-    </div>
+    </>
   )
 }
 
