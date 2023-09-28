@@ -27,6 +27,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 
 
 function Navbar() {
@@ -175,17 +176,6 @@ function Navbar() {
                         </ListItem>
                     </Link>
                     <Divider />
-                    <ListItem disablePadding onClick={handleMenuClose}>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <Avatar>
-                                    <LoginIcon />
-                                </Avatar>
-                            </ListItemIcon>
-                            <ListItemText primary="Login" />
-                        </ListItemButton>
-                    </ListItem>
-                    <Divider/>
                     <Link to={'/account'} style={{ textDecoration: 'none' }}>
                         <ListItem disablePadding onClick={handleMenuClose}>
                             <ListItemButton>
@@ -199,6 +189,30 @@ function Navbar() {
                         </ListItem>
                     </Link>
                     <Divider />
+                    <Link to={'/admin'} style={{ textDecoration: 'none' }}>
+                        <ListItem disablePadding onClick={handleMenuClose}>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <Avatar>
+                                        <AssignmentIcon />
+                                    </Avatar>
+                                </ListItemIcon>
+                                <ListItemText primary="Admin Dashboard" />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
+                    <Divider />
+                    <ListItem disablePadding onClick={handleMenuClose}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <Avatar>
+                                    <LoginIcon />
+                                </Avatar>
+                            </ListItemIcon>
+                            <ListItemText primary="Login" />
+                        </ListItemButton>
+                    </ListItem>
+                    <Divider/>
                     <ListItem disablePadding onClick={handleMenuClose}>
                         <ListItemButton>
                             <ListItemIcon>
