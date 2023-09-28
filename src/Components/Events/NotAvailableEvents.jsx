@@ -7,18 +7,18 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom'
-import TechWaveServices from '../../../Services/TechWaveService'
+import TechWaveServices from '../../Services/TechWaveService'
 
-function AllEvents() {
+function NotAvailableEvents() {
 
-    const [events, setEvents] = useState([])
+    const [notAvailableEvents, setNotAvailableEvents] = useState([])
 
     useEffect(() => {
-        TechWaveServices.getAllEvents()
-            .then((data) => {
-                setEvents(data)
-            })
-    }, []);
+        TechWaveServices.notAvailableEvents()
+          .then((data) => {
+            setNotAvailableEvents(data);
+          })
+      }, []);
 
     return (
         <Box sx={{
@@ -27,7 +27,7 @@ function AllEvents() {
             marginBottom: 5,
         }}>
             <Grid container spacing={2}>
-                {events.map((item) => (
+                {notAvailableEvents.map((item) => (
                     <Grid item xs={12} sm={6} md={4} key={item.id} container justifyContent="center">
                         <Card sx={{ maxWidth: 345 }}>
                             <CardActionArea>
@@ -58,4 +58,4 @@ function AllEvents() {
     )
 }
 
-export default AllEvents
+export default NotAvailableEvents
