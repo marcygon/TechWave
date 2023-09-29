@@ -1,11 +1,14 @@
 import axios from 'axios'
 
-const url = 'http://localhost:8080/events'
+const baseUrl = 'http://localhost:8080'
+const url = '/events'
+const urlRegister = url + '/register'
+const urlLogin = url + '/login'
 const techwaveUserServices = {
 
     userRegister(data) {
         return axios
-            .post(url + `/register`, data)
+            .post(baseUrl + urlRegister, data)
             .then((res) => {
                 console.log("Register succed", res);
             })
@@ -16,14 +19,14 @@ const techwaveUserServices = {
 
     userLogin(data) {
         return axios
-            .post(url + `/login`, data)
+            .post(baseUrl + urlLogin, data)
             .then((res) => res.data)
             .catch((error) => console.log(error));
     },
 
     joinEvent(id) {
         return axios
-            .get(url + "/joinEvent")
+            .get(baseUrl + url + "/joinEvent")
             .then((res) => res.data)
             .catch((error) => console.error(error));
     },
