@@ -8,11 +8,18 @@ import ListItemText from '@mui/material/ListItemText';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import { grey } from '@mui/material/colors';
 
 function Footer() {
 
     return (
-        <Box align="center">
+        <Box
+            align="center"
+            sx={{
+                marginTop: '60px',
+                backgroundColor: grey[100],
+                padding: '10px',  
+            }}>
             <List>
                 <ListItemButton>
                     <ListItemText primary="Services" />
@@ -44,7 +51,7 @@ function Footer() {
             <Typography variant="body2" align="center" color="textSecondary">
                 &copy; 2023
             </Typography>
-        </Box>
+        </Box >
     );
 }
 

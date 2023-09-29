@@ -10,7 +10,11 @@ function Slogan() {
     return (
         <Box sx={{ flexGrow: 1 }} className='slogan'>
             <Grid container spacing={2}>
-                <Grid item xs={12}>
+                <Grid
+                    item xs={12}
+                    sx={{
+                        marginTop: '30px',
+                    }}>
                     <div className='slogan-text'>
                         <h1>Don't miss a thing, join our community now!</h1>
                         <Link to={`/events`} style={{ textDecoration: 'none' }}>
