@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import Navbar from '../Components/Navbar/Navbar'
-import Footer from '../Components/Footer/Footer'
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -21,7 +19,6 @@ function EventsPage() {
 
     return (
         <>
-            <Navbar />
             <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -64,7 +61,6 @@ function EventsPage() {
                     <AllEvents />
                 </AccordionDetails>
             </Accordion>
-            <Footer />
         </>
     )
 }
