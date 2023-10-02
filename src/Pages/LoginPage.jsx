@@ -22,14 +22,18 @@ function LoginPage() {
             noValidate
             autoComplete="off"
         >
-            <TextField id="standard-basic" label="E-mail" variant="standard" />
             <TextField
-                id="standard-basic"
+                id="email"
+                label="E-mail"
+                variant="standard"
+            />
+            <TextField
+                id="password"
                 variant="standard"
                 type={showPassword ? 'text' : 'password'}
                 label="Password"
             />
-            <Button variant="contained">sign in</Button>
+            <Button variant="contained">Sign in</Button>
             <p>Don't have an account? <Link to={'/register'}>Register here</Link></p>
         </Box>
     )
