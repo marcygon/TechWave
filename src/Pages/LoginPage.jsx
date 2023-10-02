@@ -9,12 +9,12 @@ import passwordValidation from '../Components/Validations/PasswordValidation';
 
 function LoginPage() {
 
+    const showPassword = false;
+
     const initialLogin = {
         email: "",
         password: ""
     };
-
-    const showPassword = false;
 
     const [login, setLogin] = useState(initialLogin);
     let navigate = useNavigate();
