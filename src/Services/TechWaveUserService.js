@@ -31,7 +31,23 @@ const techwaveUserServices = {
             .catch((error) => console.error(error));
     },
 
+    inscribedEvent(id) {
+        return axios.post(url + `/${id}/inscribed`, data, config)
+            .then((response) => {
+                console.log('Inscrito:', response.data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    },
 
+    myEvents() {
+        return axios.get(baseUrl + url + '/myEvents', config)
+            .then((res) => res.data)
+            .catch((error) => {
+                console.error('Error:', error);
+            })
+    }
 }
 
 export default techwaveUserServices
