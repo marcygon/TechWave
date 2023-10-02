@@ -56,40 +56,48 @@ function LoginPage() {
     }
 
     return (
-        <Box
-            component='form'
-            sx={{
-                '& > :not(style)': { m: 1, width: '25ch' },
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                minHeight: '90vh',
-            }}
-            noValidate
-            autoComplete="off"
+        <form
             onSubmit={loginSubmit}
         >
-            <TextField
-                id="email"
-                label="E-mail"
-                variant="standard"
-                onChange={onChangeInput}
-                required
-                onKeyUp={emailValidation}
-            />
-            <TextField
-                id="password"
-                variant="standard"
-                type={showPassword ? 'text' : 'password'}
-                label="Password"
-                onChange={onChangeInput}
-                required
-                onKeyUp={passwordValidation}
-            />
-            <Button variant="contained">Sign in</Button>
-            <p>Don't have an account? <Link to={'/register'}>Register here</Link></p>
-        </Box>
+            <Box
+                sx={{
+                    '& > :not(style)': { m: 1, width: '25ch' },
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    minHeight: '90vh',
+                }}
+                noValidate
+                autoComplete="off"
+            >
+                <TextField
+                    required
+                    id="email"
+                    name="email"
+                    label="E-mail"
+                    variant="standard"
+                    onChange={onChangeInput}
+                    onKeyUp={emailValidation}
+                />
+                <TextField
+                    required
+                    id="password"
+                    name="password"
+                    label="Password"
+                    variant="standard"
+                    type={showPassword ? 'text' : 'password'}
+                    onChange={onChangeInput}
+                    onKeyUp={passwordValidation}
+                />
+                <Button type="submit" variant="contained">
+                    Sign in
+                </Button>
+                <p>
+                    Don't have an account? <Link to={'/register'}>Register here</Link>
+                </p>
+            </Box>
+        </form>
     )
 }
 
