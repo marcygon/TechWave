@@ -1,9 +1,9 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import techwaveAuthServices from '../Services/TechWaveAuthService'
+import TechwaveAuthServices from '../Services/TechWaveAuthService'
 import emailValidation from '../Components/Validations/EmailValidation';
 import passwordValidation from '../Components/Validations/PasswordValidation';
 
@@ -13,7 +13,7 @@ function LoginPage() {
         email: "",
         password: ""
     };
-    
+
     const showPassword = false;
 
     const [login, setLogin] = useState(initialLogin);
@@ -35,7 +35,7 @@ function LoginPage() {
             password: login.password,
             token: login.token
         };
-        techwaveAuthServices.loginByData(data)
+        TechwaveAuthServices.loginByData(data)
             .then((res) => {
                 const authUser = {
                     token: res.token,
@@ -45,7 +45,7 @@ function LoginPage() {
                 localStorage.setItem("auth_token", res.token);
                 localStorage.setItem("auth_email", res.email);
                 localStorage.setItem("auth_role", res.role);
-                techwaveAuthServices.saveAuthUser(authUser);
+                TechwaveAuthServices.saveAuthUser(authUser)
                 navigate("/");
                 document.location.reload();
             })
