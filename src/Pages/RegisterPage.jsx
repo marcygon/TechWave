@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import useNavigate from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import TechwaveAuthServices from '../Services/TechWaveAuthService'
 import emailValidation from '../Components/Validations/EmailValidation';
 import passwordValidation from '../Components/Validations/PasswordValidation';
