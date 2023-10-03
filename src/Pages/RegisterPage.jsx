@@ -53,6 +53,14 @@ function RegisterPage() {
             >
                 <TextField
                     required
+                    id="name"
+                    name="name"
+                    label="Name"
+                    variant="standard"
+                    onChange={onChangeInput}
+                />
+                <TextField
+                    required
                     id="email"
                     name="email"
                     label="E-mail"
