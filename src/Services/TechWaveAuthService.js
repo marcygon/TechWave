@@ -2,8 +2,8 @@ import axios from 'axios'
 
 const baseUrl = 'http://localhost:8080'
 const url = '/events'
-const urlAuthRegister = url + '/auth/register'
-const urlAuthAuthenticate = url + '/auth/authenticate'
+const urlAuthRegister = url + '/register'
+const urlAuthLogin = url + '/login'
 const techwaveAuthServices = {
 
   isAuthor(object) {
@@ -28,13 +28,13 @@ const techwaveAuthServices = {
   },
 
   registerByData(data) {
-    return axios.post(baseUrl, urlAuthRegister, data)
+    return axios.post(baseUrl + urlAuthRegister, data)
       .then((res) => res.data)
       .catch((err) => console.log(err))
   },
 
   loginByData(data) {
-    return axios.post(baseUrl, urlAuthAuthenticate, data)
+    return axios.post(baseUrl + urlAuthLogin, data)
       .then((res) => res.data)
       .catch((err) => console.log(err))
   },
