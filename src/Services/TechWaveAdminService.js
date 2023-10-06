@@ -35,6 +35,7 @@ const techwaveAdminServices = {
             });
     },
 
+
 }
 
 export default techwaveAdminServices

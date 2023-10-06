@@ -49,6 +49,7 @@ const techwaveServices = {
             .catch((error) => console.log(error))
     },
 
+    
 }
 
 export default techwaveServices

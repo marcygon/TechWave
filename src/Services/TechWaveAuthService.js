@@ -38,6 +38,8 @@ const techwaveAuthServices = {
       .then((res) => res.data)
       .catch((error) => console.log(error))
   },
+
+
 }
 
 export default techwaveAuthServices
