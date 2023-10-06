@@ -30,13 +30,13 @@ const techwaveAuthServices = {
   registerByData(data) {
     return axios.post(baseUrl + urlAuthRegister, data)
       .then((res) => res.data)
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   },
 
   loginByData(data) {
     return axios.post(baseUrl + urlAuthLogin, data)
       .then((res) => res.data)
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
   },
 }
 

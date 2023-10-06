@@ -7,27 +7,31 @@ const techwaveAdminServices = {
     deleteEventById(id) {
         return axios
             .delete(baseUrl + url + `/${id}`)
-            .then((res) => res.data)
-            .catch((error) => console.log(error));
-    },
-
-    eventPost(data) {
-        return axios.post(baseUrl + url + data, config)
-            .then((response) => {
-                console.log('Evento Creado:', response.data);
+            .then((res) => {
+                console.log(`Event ${id} deleted`, res.data);
             })
             .catch((error) => {
-                console.error('Evento no Creado:', error);
+                console.error(`Failed to delete event ${id}`, error);
             });
     },
 
-    eventPut(id, data) {
-        return axios.put(baseUrl + url + `/${id}`, data, config)
-            .then((response) => {
-                console.log('Evento Editado:', response.data);
+    addEvent(data) {
+        return axios.post(baseUrl + url, data, config)
+            .then((res) => {
+                console.log('Event added', res.data);
             })
             .catch((error) => {
-                console.error('Evento no Editado:', error);
+                console.error('Failed to add event', error);
+            });
+    },
+
+    editEventById(id, data) {
+        return axios.put(baseUrl + url + `/${id}`, data, config)
+            .then((res) => {
+                console.log(`Event ${id} edited`, res.data);
+            })
+            .catch((error) => {
+                console.error(`Failed to edit ${id} event`, error);
             });
     },
 
