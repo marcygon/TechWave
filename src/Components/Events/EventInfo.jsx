@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -28,7 +28,6 @@ function EventInfo() {
     }, [id])
 
     const join = () => {
-
         if (!joined) {
             setEventId((prevState) => ({
                 ...prevState,
@@ -36,12 +35,12 @@ function EventInfo() {
             }));
 
             setJoined(true);
-
             setShowAlert(true);
 
             setTimeout(() => {
                 setShowAlert(false);
             }, 3000);
+
         } else {
             setEventId((prevState) => ({
                 ...prevState,
@@ -49,7 +48,6 @@ function EventInfo() {
             }));
 
             setJoined(false);
-
             setShowAlert(true);
 
             setTimeout(() => {
@@ -131,11 +129,7 @@ function EventInfo() {
                             </CardActionArea>
                             <CardActions>
                                 {role === 'USER' && (
-                                    <Box
-                                        sx={{
-                                            marginLeft: 'auto'
-                                        }}
-                                    >
+                                    <Box sx={{ marginLeft: 'auto' }}>
                                         <Button
                                             className="joinBtn"
                                             variant="contained"
@@ -147,11 +141,26 @@ function EventInfo() {
                                         </Button>
                                     </Box>
                                 )}
+                                {role !== 'ADMIN' && !role && (
+                                    <Box sx={{ marginLeft: 'auto' }}>
+                                        <Link to="/login" style={{ textDecoration: 'none' }}>
+                                            <Button
+                                                className="joinBtn"
+                                                variant="contained"
+                                                aria-label="join"
+                                                startIcon={<AddCircleOutlineIcon />}
+                                            >
+                                                Join {eventId.registersCount}/{eventId.maxParticipants}
+                                            </Button>
+                                        </Link>
+                                    </Box>
+                                )}
                             </CardActions>
+
                         </Card>
                     </Grid>
                 </Grid>
-            </Box>
+            </Box >
 
             <Stack
                 sx={{
