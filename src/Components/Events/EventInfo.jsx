@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -17,10 +17,10 @@ import Stack from '@mui/material/Stack';
 
 function EventInfo() {
 
-    const [eventId, setEventId] = useState([])
+    const [eventId, setEventId] = useState([]);
     const [showAlert, setShowAlert] = useState(false);
     const [joined, setJoined] = useState(false);
-    const { id } = useParams()
+    const { id } = useParams();
 
     useEffect(() => {
         TechWaveServices.eventById(id)
@@ -56,54 +56,97 @@ function EventInfo() {
                 setShowAlert(false);
             }, 3000);
         }
-    }
+    };
+
+    const role = localStorage.getItem('auth_role');
 
     return (
         <>
-            <Box sx={{
-                flexGrow: 1,
-                marginTop: 2,
-                marginBottom: 5,
-            }}>
-                <Grid container spacing={2}>
-                    <Grid item xs={12} sm={6} md={4} key={eventId.id} container justifyContent="center">
-                        <Card sx={{ maxWidth: 345 }}>
+            <Box
+                sx={{
+                    flexGrow: 1,
+                    marginTop: 2,
+                    marginBottom: 5,
+                }}
+            >
+                <Grid
+                    container
+                    spacing={2}
+                >
+                    <Grid
+                        item
+                        xs={12}
+                        sm={6}
+                        md={4}
+                        key={eventId.id}
+                        container
+                        justifyContent="center"
+                    >
+                        <Card
+                            sx={{
+                                maxWidth: 345
+                            }}
+                        >
                             <CardActionArea>
                                 <CardMedia
-                                    sx={{ height: 140 }}
+                                    sx={{
+                                        height: 140
+                                    }}
                                     image={eventId.img}
                                     title={eventId.name}
                                 />
                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
+                                    <Typography
+                                        gutterBottom
+                                        variant="h5"
+                                        component="div"
+                                    >
                                         {eventId.name}
                                     </Typography>
-                                    <Typography variant="h6">
+                                    <Typography
+                                        variant="h6"
+                                    >
                                         {eventId.organizer}
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary">
+                                    <Typography
+                                        variant="body2"
+                                        color="text.secondary"
+                                    >
                                         {eventId.eventDate} {eventId.eventHour}
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary" gutterBottom="true">
+                                    <Typography
+                                        variant="body2"
+                                        color="text.secondary"
+                                        gutterBottom="true"
+                                    >
                                         {eventId.location}
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary">
+                                    <Typography
+                                        variant="body2"
+                                        color="text.secondary"
+                                    >
                                         {eventId.description}
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Box sx={{ marginLeft: 'auto' }}>
-                                    <Button
-                                        className="joinBtn"
-                                        variant="contained"
-                                        aria-label="join"
-                                        startIcon={<AddCircleOutlineIcon />}
-                                        onClick={join}
+                                {role === 'USER' && (
+                                    <Box
+                                        sx={{
+                                            marginLeft: 'auto'
+                                        }}
                                     >
-                                        Join {eventId.registersCount}/{eventId.maxParticipants}
-                                    </Button>
-                                </Box>
+                                        <Button
+                                            className="joinBtn"
+                                            variant="contained"
+                                            aria-label="join"
+                                            startIcon={<AddCircleOutlineIcon />}
+                                            onClick={join}
+                                        >
+                                            Join {eventId.registersCount}/{eventId.maxParticipants}
+                                        </Button>
+                                    </Box>
+                                )}
                             </CardActions>
                         </Card>
                     </Grid>
