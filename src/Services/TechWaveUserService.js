@@ -12,10 +12,10 @@ const techwaveUserServices = {
         return axios
             .post(baseUrl + urlRegister, data)
             .then((res) => {
-                console.log("Register succed", res);
+                console.log('Registration succeeded', res);
             })
             .catch((error) => {
-                console.log("Register failed", error);
+                console.log('Registration failed.', error);
             });
     },
 
