@@ -1,8 +1,7 @@
-import React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { styled, alpha } from '@mui/material/styles';
 import AvatarPic from '../AvatarPic/AvatarPic';
-
 import {
     AppBar,
     Avatar,
@@ -19,7 +18,6 @@ import {
     IconButton,
     InputBase,
 } from '@mui/material';
-
 import EventIcon from '@mui/icons-material/Event';
 import GroupsIcon from '@mui/icons-material/Groups';
 import HomeIcon from '@mui/icons-material/Home';
@@ -32,10 +30,10 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 
 function Navbar() {
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
 
-    const handleMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
+    const handleMenuOpen = (e) => {
+        setAnchorEl(e.currentTarget);
     };
 
     const handleMenuClose = () => {
@@ -43,6 +41,39 @@ function Navbar() {
     };
 
     const isMenuOpen = Boolean(anchorEl);
+
+    const user = JSON.parse(localStorage.getItem('auth'));
+    const role = localStorage.getItem('auth_role');
+
+    const userMenuItems = [
+        { text: 'Home', icon: <HomeIcon />, link: '/' },
+        { text: 'Events', icon: <EventIcon />, link: '/events' },
+        { text: 'About us', icon: <GroupsIcon />, link: '/aboutUs' },
+    ];
+
+    const adminMenuItems = [
+        ...userMenuItems,
+        { text: 'Admin Dashboard', icon: <AssignmentIcon />, link: '/admin' },
+    ];
+
+    function handleLogout() {
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('auth_email');
+        localStorage.removeItem('auth_role');
+        localStorage.removeItem('auth');
+        window.location = '/';
+    }
+
+    const menuItems = user
+        ? role === 'ADMIN'
+            ? adminMenuItems
+            : [...userMenuItems, { text: 'My account', icon: <AvatarPic />, link: '/account' }]
+        : [
+            { text: 'Home', icon: <HomeIcon />, link: '/' },
+            { text: 'Events', icon: <EventIcon />, link: '/events' },
+            { text: 'About us', icon: <GroupsIcon />, link: '/aboutUs' },
+            { text: 'Login', icon: <LoginIcon />, link: '/login' }
+        ];
 
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
@@ -137,94 +168,31 @@ function Navbar() {
             >
 
                 <List style={{ width: '300px' }}>
-                    <Link to={'/'} style={{ textDecoration: 'none' }}>
-                        <ListItem disablePadding onClick={handleMenuClose}>
+                    {menuItems.map((menuItem, index) => (
+                        <Link to={menuItem.link} style={{ textDecoration: 'none' }} key={index}>
+                            <ListItem disablePadding onClick={handleMenuClose}>
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <Avatar>{menuItem.icon}</Avatar>
+                                    </ListItemIcon>
+                                    <ListItemText primary={menuItem.text} />
+                                </ListItemButton>
+                            </ListItem>
+                            {index < menuItems.length - 1 && <Divider />}
+                        </Link>
+                    ))}
+                    {user && (
+                        <ListItem disablePadding onClick={handleLogout}>
                             <ListItemButton>
                                 <ListItemIcon>
                                     <Avatar>
-                                        <HomeIcon />
+                                        <LogoutIcon />
                                     </Avatar>
                                 </ListItemIcon>
-                                <ListItemText primary="Home" />
+                                <ListItemText primary="Logout" />
                             </ListItemButton>
                         </ListItem>
-                    </Link>
-                    <Divider />
-                    <Link to={'/events'} style={{ textDecoration: 'none' }}>
-                        <ListItem disablePadding onClick={handleMenuClose}>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    <Avatar>
-                                        <EventIcon />
-                                    </Avatar>
-                                </ListItemIcon>
-                                <ListItemText primary="Events" />
-                            </ListItemButton>
-                        </ListItem>
-                    </Link>
-                    <Divider />
-                    <Link to={'/aboutUs'} style={{ textDecoration: 'none' }}>
-                        <ListItem disablePadding onClick={handleMenuClose}>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    <Avatar>
-                                        <GroupsIcon />
-                                    </Avatar>
-                                </ListItemIcon>
-                                <ListItemText primary="About us" />
-                            </ListItemButton>
-                        </ListItem>
-                    </Link>
-                    <Divider />
-                    <Link to={'/account'} style={{ textDecoration: 'none' }}>
-                        <ListItem disablePadding onClick={handleMenuClose}>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    <Avatar>
-                                        <AvatarPic />
-                                    </Avatar>
-                                </ListItemIcon>
-                                <ListItemText primary="My account" />
-                            </ListItemButton>
-                        </ListItem>
-                    </Link>
-                    <Divider />
-                    <Link to={'/admin'} style={{ textDecoration: 'none' }}>
-                        <ListItem disablePadding onClick={handleMenuClose}>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    <Avatar>
-                                        <AssignmentIcon />
-                                    </Avatar>
-                                </ListItemIcon>
-                                <ListItemText primary="Admin Dashboard" />
-                            </ListItemButton>
-                        </ListItem>
-                    </Link>
-                    <Divider />
-                    <Link to={'/login'} style={{ textDecoration: 'none' }}>
-                        <ListItem disablePadding onClick={handleMenuClose}>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    <Avatar>
-                                        <LoginIcon />
-                                    </Avatar>
-                                </ListItemIcon>
-                                <ListItemText primary="Login" />
-                            </ListItemButton>
-                        </ListItem>
-                    </Link>
-                    <Divider />
-                    <ListItem disablePadding onClick={handleMenuClose}>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <Avatar>
-                                    <LogoutIcon />
-                                </Avatar>
-                            </ListItemIcon>
-                            <ListItemText primary="Logout" />
-                        </ListItemButton>
-                    </ListItem>
+                    )}
                 </List>
             </Menu>
         </>
