@@ -4,6 +4,8 @@ const baseUrl = 'http://localhost:8080'
 const url = '/events'
 const urlRegister = url + '/register'
 const urlLogin = url + '/login'
+const urlJoinEvent = url + '/joinEvent'
+const urlJoinedEvents = url + '/joined'
 const techwaveUserServices = {
 
     userRegister(data) {
@@ -26,28 +28,18 @@ const techwaveUserServices = {
 
     joinEvent(id) {
         return axios
-            .get(baseUrl + url + "/joinEvent")
+            .get(baseUrl + urlJoinEvent)
             .then((res) => res.data)
             .catch((error) => console.error(error));
     },
 
-    inscribedEvent(id) {
-        return axios.post(url + `/${id}/inscribed`, data, config)
-            .then((response) => {
-                console.log('Inscrito:', response.data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+    joinedEvents() {
+        return axios.post(baseUrl + urlJoinedEvents)
+            .then((res) => res.data)
+            .catch((error) => console.error(error));
     },
 
-    myEvents() {
-        return axios.get(baseUrl + url + '/myEvents', config)
-            .then((res) => res.data)
-            .catch((error) => {
-                console.error('Error:', error);
-            })
-    }
+    
 }
 
 export default techwaveUserServices
