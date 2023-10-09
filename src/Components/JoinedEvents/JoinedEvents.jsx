@@ -43,11 +43,21 @@ function JoinedEvents() {
             </Typography>
             <Divider />
             {isLoading ? (
-                <Typography variant="body2">
+                <Typography
+                    variant="body2"
+                    sx={{
+                        marginTop: 5,
+                    }}
+                >
                     Loading...
                 </Typography>
             ) : error ? (
-                <Typography variant="body2">
+                <Typography
+                    variant="body2"
+                    sx={{
+                        marginTop: 5,
+                    }}
+                >
                     Error fetching joined events: {error.message}
                 </Typography>
             ) : (
@@ -56,7 +66,15 @@ function JoinedEvents() {
                     spacing={2}
                 >
                     {joinedEvents.length === 0 ? (
-                        <Typography variant="body2">No joined events available.</Typography>
+                        <Typography
+                            variant="body2"
+                            sx={{
+                                marginTop: 5,
+                                marginLeft: 2,
+                                marginRight: 2,
+                            }}
+                        >
+                            No joined events available.</Typography>
                     ) : (
                         joinedEvents.map((item) => (
                             <Grid
