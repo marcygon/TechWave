@@ -6,6 +6,11 @@ const urlRegister = url + '/register'
 const urlLogin = url + '/login'
 const urlJoinEvent = url + '/joinEvent'
 const urlJoinedEvents = url + '/joined'
+const token = localStorage.getItem("auth_token");
+const config = {
+    headers: { Authorization: `Bearer ${token}` }
+};
+
 const techwaveUserServices = {
 
     userRegister(data) {
@@ -34,7 +39,7 @@ const techwaveUserServices = {
     },
 
     joinedEvents() {
-        return axios.post(baseUrl + urlJoinedEvents)
+        return axios.get(baseUrl + urlJoinedEvents, config)
             .then((res) => res.data)
             .catch((error) => console.error(error));
     },
