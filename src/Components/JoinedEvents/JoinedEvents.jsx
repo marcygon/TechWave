@@ -85,6 +85,9 @@ function JoinedEvents() {
                                 key={item.id}
                                 container
                                 justifyContent="center"
+                                sx={{
+                                    marginTop: 5,
+                                }}
                             >
                                 <Card
                                     sx={{
