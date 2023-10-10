@@ -1,14 +1,18 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:8080'
-const url = '/events'
-const urlRegister = url + '/register'
-const urlLogin = url + '/login'
-const urlJoinEvent = '/joinEvent'
-const urlJoinedEvents = url + '/joined'
+const baseUrl = 'http://localhost:8080';
+const url = '/events';
+const urlRegister = url + '/register';
+const urlLogin = url + '/login';
+const urlJoinEvent = '/joinEvent';
+const urlJoinedEvents = url + '/joined';
 const token = localStorage.getItem("auth_token");
+const email = localStorage.getItem("auth_email");
 const config = {
     headers: { Authorization: `Bearer ${token}` }
+};
+const emailData = {
+    email: {email}
 };
 
 const techwaveUserServices = {
@@ -33,7 +37,7 @@ const techwaveUserServices = {
 
     joinEvent(id) {
         return axios
-            .post(baseUrl + url + '/' + id + urlJoinEvent, config)
+            .post(baseUrl + url + '/' + id + urlJoinEvent, emailData, config)
             .then((res) => res.data)
             .catch((error) => console.error(error));
     },

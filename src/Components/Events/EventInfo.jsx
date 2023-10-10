@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate, } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -24,46 +24,72 @@ function EventInfo() {
     const [joined, setJoined] = useState(false);
     const { id } = useParams();
 
+    const userToken = localStorage.getItem("auth_token");
+    // const role = localStorage.getItem('auth_role');
+    const navigate = useNavigate()
+
     useEffect(() => {
         TechWaveServices.eventById(id)
             .then((data) => setEventId(data))
     }, [id])
 
-    const join = () => {
-        if (!joined) {
+    const handleJoin = () => {
+        if (userToken) {
             TechwaveUserServices.joinEvent(id)
                 .then((data) => {
-                    setEventId((prevState) => ({
-                        ...prevState,
-                        registersCount: prevState.registersCount + 1
-                    }));
-
-                    setJoined(true);
-                    setShowAlert(true);
-
-                    setTimeout(() => {
-                        setShowAlert(false);
-                    }, 3000);
+                    console.log(data)
                 })
+                .then(document.location.reload())
                 .catch((error) => {
-                    console.error(error);
-                });
-        } else {
-            setEventId((prevState) => ({
-                ...prevState,
-                registersCount: prevState.registersCount - 1
-            }));
+                    console.log(error)
+                })
 
-            setJoined(false);
+            setJoined(true);
             setShowAlert(true);
 
             setTimeout(() => {
                 setShowAlert(false);
             }, 3000);
+        } else {
+            navigate('/login')
         }
-    };
+    }
 
-    const role = localStorage.getItem('auth_role');
+    // const join = () => {
+    //     if (!joined) {
+    //         TechwaveUserServices.joinEvent(id)
+    //             .then((data) => {
+    //                 setEventId((prevState) => ({
+    //                     ...prevState,
+    //                     registersCount: prevState.registersCount + 1
+    //                 }));
+
+    //                 setJoined(true);
+    //                 setShowAlert(true);
+
+    //                 setTimeout(() => {
+    //                     setShowAlert(false);
+    //                 }, 3000);
+    //             })
+    //             .catch((error) => {
+    //                 console.error(error);
+    //             });
+    //     } else {
+    //         setEventId((prevState) => ({
+    //             ...prevState,
+    //             registersCount: prevState.registersCount - 1
+    //         }));
+
+    //         setJoined(false);
+    //         setShowAlert(true);
+
+    //         setTimeout(() => {
+    //             setShowAlert(false);
+    //         }, 3000);
+    //     }
+    // };
+
+
 
     return (
         <>
@@ -135,14 +161,14 @@ function EventInfo() {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                {role === 'USER' && (
+                                {/* {role === 'USER' && ( */}
                                     <Box sx={{ marginLeft: 'auto' }}>
                                         <Button
                                             className="joinBtn"
                                             variant="contained"
                                             aria-label="join"
-                                            startIcon={joined ? <CheckCircleOutlineIcon/> : <AddCircleOutlineIcon />}
-                                            onClick={join}
+                                            startIcon={joined ? <CheckCircleOutlineIcon /> : <AddCircleOutlineIcon />}
+                                            onClick={handleJoin}
                                             sx={{
                                                 backgroundColor: joined ? 'green' : '',
                                             }}
@@ -150,8 +176,8 @@ function EventInfo() {
                                             {joined ? 'Joined' : 'Join'} {eventId.registersCount}/{eventId.maxParticipants}
                                         </Button>
                                     </Box>
-                                )}
-                                {role !== 'ADMIN' && !role && (
+                                {/* )} */}
+                                {/* {role !== 'ADMIN' && !role && (
                                     <Box sx={{ marginLeft: 'auto' }}>
                                         <Link to="/login" style={{ textDecoration: 'none' }}>
                                             <Button
@@ -164,7 +190,7 @@ function EventInfo() {
                                             </Button>
                                         </Link>
                                     </Box>
-                                )}
+                                )} */}
                             </CardActions>
 
                         </Card>
