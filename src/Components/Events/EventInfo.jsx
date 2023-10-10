@@ -23,73 +23,62 @@ function EventInfo() {
     const [showAlert, setShowAlert] = useState(false);
     const [joined, setJoined] = useState(false);
     const { id } = useParams();
-
     const userToken = localStorage.getItem("auth_token");
     // const role = localStorage.getItem('auth_role');
     const navigate = useNavigate()
 
     useEffect(() => {
+        const joined = localStorage.getItem(`joined_${id}`);
+        setJoined(joined === 'true')
+
         TechWaveServices.eventById(id)
-            .then((data) => setEventId(data))
+            .then((data) => {
+                setEventId(data);
+            })
     }, [id])
 
     const handleJoin = () => {
         if (userToken) {
-            TechwaveUserServices.joinEvent(id)
-                .then((data) => {
-                    console.log(data)
-                })
-                .then(document.location.reload())
-                .catch((error) => {
-                    console.log(error)
-                })
+            if (joined) {
+                TechwaveUserServices.joinEvent(id)
+                    .then(() => {
+                        setEventId((prevState) => ({
+                            ...prevState,
+                            registersCount: prevState.registersCount - 1,
+                        }));
+                        localStorage.removeItem(`joined_${id}`);
+                        setJoined(false);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            } else {
+                TechwaveUserServices.joinEvent(id)
+                    .then((data) => {
+                        setEventId((prevState) => ({
+                            ...prevState,
+                            registersCount: prevState.registersCount + 1,
+                        }));
+                        console.log(data);
+                        localStorage.setItem(`joined_${id}`, 'true');
+                        setJoined(true);
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    })
 
-            setJoined(true);
-            setShowAlert(true);
+                setShowAlert(true);
 
-            setTimeout(() => {
-                setShowAlert(false);
-            }, 3000);
-        } else {
+                setTimeout(() => {
+                    setShowAlert(false);
+                    // document.location.reload();
+                }, 3000);
+            }
+        }
+        else {
             navigate('/login')
         }
     }
-
-    // const join = () => {
-    //     if (!joined) {
-    //         TechwaveUserServices.joinEvent(id)
-    //             .then((data) => {
-    //                 setEventId((prevState) => ({
-    //                     ...prevState,
-    //                     registersCount: prevState.registersCount + 1
-    //                 }));
-
-    //                 setJoined(true);
-    //                 setShowAlert(true);
-
-    //                 setTimeout(() => {
-    //                     setShowAlert(false);
-    //                 }, 3000);
-    //             })
-    //             .catch((error) => {
-    //                 console.error(error);
-    //             });
-    //     } else {
-    //         setEventId((prevState) => ({
-    //             ...prevState,
-    //             registersCount: prevState.registersCount - 1
-    //         }));
-
-    //         setJoined(false);
-    //         setShowAlert(true);
-
-    //         setTimeout(() => {
-    //             setShowAlert(false);
-    //         }, 3000);
-    //     }
-    // };
-
-
 
     return (
         <>
@@ -162,20 +151,20 @@ function EventInfo() {
                             </CardActionArea>
                             <CardActions>
                                 {/* {role === 'USER' && ( */}
-                                    <Box sx={{ marginLeft: 'auto' }}>
-                                        <Button
-                                            className="joinBtn"
-                                            variant="contained"
-                                            aria-label="join"
-                                            startIcon={joined ? <CheckCircleOutlineIcon /> : <AddCircleOutlineIcon />}
-                                            onClick={handleJoin}
-                                            sx={{
-                                                backgroundColor: joined ? 'green' : '',
-                                            }}
-                                        >
-                                            {joined ? 'Joined' : 'Join'} {eventId.registersCount}/{eventId.maxParticipants}
-                                        </Button>
-                                    </Box>
+                                <Box sx={{ marginLeft: 'auto' }}>
+                                    <Button
+                                        className="joinBtn"
+                                        variant="contained"
+                                        aria-label="join"
+                                        startIcon={joined ? <CheckCircleOutlineIcon /> : <AddCircleOutlineIcon />}
+                                        onClick={handleJoin}
+                                        sx={{
+                                            backgroundColor: joined ? 'green' : '',
+                                        }}
+                                    >
+                                        {joined ? 'Joined' : 'Join'} {eventId.registersCount}/{eventId.maxParticipants}
+                                    </Button>
+                                </Box>
                                 {/* )} */}
                                 {/* {role !== 'ADMIN' && !role && (
                                     <Box sx={{ marginLeft: 'auto' }}>
