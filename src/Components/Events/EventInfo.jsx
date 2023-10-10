@@ -10,9 +10,11 @@ import Grid from '@mui/material/Grid';
 import { CardActionArea } from '@mui/material';
 import TechWaveServices from '../../Services/TechWaveService'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
+import TechwaveUserServices from '../../Services/TechWaveUserService';
 
 
 function EventInfo() {
@@ -29,18 +31,23 @@ function EventInfo() {
 
     const join = () => {
         if (!joined) {
-            setEventId((prevState) => ({
-                ...prevState,
-                registersCount: prevState.registersCount + 1
-            }));
+            TechwaveUserServices.joinEvent(id)
+                .then((data) => {
+                    setEventId((prevState) => ({
+                        ...prevState,
+                        registersCount: prevState.registersCount + 1
+                    }));
 
-            setJoined(true);
-            setShowAlert(true);
+                    setJoined(true);
+                    setShowAlert(true);
 
-            setTimeout(() => {
-                setShowAlert(false);
-            }, 3000);
-
+                    setTimeout(() => {
+                        setShowAlert(false);
+                    }, 3000);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
         } else {
             setEventId((prevState) => ({
                 ...prevState,
@@ -134,10 +141,13 @@ function EventInfo() {
                                             className="joinBtn"
                                             variant="contained"
                                             aria-label="join"
-                                            startIcon={<AddCircleOutlineIcon />}
+                                            startIcon={joined ? <CheckCircleOutlineIcon/> : <AddCircleOutlineIcon />}
                                             onClick={join}
+                                            sx={{
+                                                backgroundColor: joined ? 'green' : '',
+                                            }}
                                         >
-                                            Join {eventId.registersCount}/{eventId.maxParticipants}
+                                            {joined ? 'Joined' : 'Join'} {eventId.registersCount}/{eventId.maxParticipants}
                                         </Button>
                                     </Box>
                                 )}
