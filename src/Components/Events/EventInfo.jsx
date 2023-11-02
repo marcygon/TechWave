@@ -24,12 +24,12 @@ function EventInfo() {
     const [joined, setJoined] = useState(false);
     const { id } = useParams();
     const userToken = localStorage.getItem("auth_token");
-    // const role = localStorage.getItem('auth_role');
+    const role = localStorage.getItem('auth_role');
     const navigate = useNavigate()
 
     useEffect(() => {
         const joined = localStorage.getItem(`joined_${id}`);
-        setJoined(joined === 'true')
+        setJoined(joined === 'false')
 
         TechWaveServices.eventById(id)
             .then((data) => {
@@ -150,7 +150,7 @@ function EventInfo() {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                {/* {role === 'USER' && ( */}
+                                {role === 'USER' && (
                                 <Box sx={{ marginLeft: 'auto' }}>
                                     <Button
                                         className="joinBtn"
@@ -165,8 +165,8 @@ function EventInfo() {
                                         {joined ? 'Joined' : 'Join'} {eventId.registersCount}/{eventId.maxParticipants}
                                     </Button>
                                 </Box>
-                                {/* )} */}
-                                {/* {role !== 'ADMIN' && !role && (
+                                )} 
+                                {role !== 'ADMIN' && !role && (
                                     <Box sx={{ marginLeft: 'auto' }}>
                                         <Link to="/login" style={{ textDecoration: 'none' }}>
                                             <Button
@@ -179,7 +179,7 @@ function EventInfo() {
                                             </Button>
                                         </Link>
                                     </Box>
-                                )} */}
+                                )}
                             </CardActions>
 
                         </Card>
