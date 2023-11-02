@@ -29,7 +29,11 @@ function EventInfo() {
 
     useEffect(() => {
         const joined = localStorage.getItem(`joined_${id}`);
-        setJoined(joined === 'false')
+        if (joined !== null) {
+            setJoined(joined === 'true');
+        } else {
+            setJoined(false);
+        }
 
         TechWaveServices.eventById(id)
             .then((data) => {
@@ -39,6 +43,7 @@ function EventInfo() {
 
     const handleJoin = () => {
         if (userToken) {
+            const eventStorageKey = `joined_${id}`;
             if (joined) {
                 TechwaveUserServices.joinEvent(id)
                     .then(() => {
@@ -46,7 +51,7 @@ function EventInfo() {
                             ...prevState,
                             registersCount: prevState.registersCount - 1,
                         }));
-                        localStorage.removeItem(`joined_${id}`);
+                        localStorage.removeItem(eventStorageKey);
                         setJoined(false);
                     })
                     .catch((error) => {
@@ -60,7 +65,7 @@ function EventInfo() {
                             registersCount: prevState.registersCount + 1,
                         }));
                         console.log(data);
-                        localStorage.setItem(`joined_${id}`, 'true');
+                        localStorage.setItem(eventStorageKey, 'true');
                         setJoined(true);
                     })
                     .catch((error) => {
@@ -71,7 +76,6 @@ function EventInfo() {
 
                 setTimeout(() => {
                     setShowAlert(false);
-                    // document.location.reload();
                 }, 3000);
             }
         }
