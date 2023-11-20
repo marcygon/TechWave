@@ -52,33 +52,63 @@ function Highlight() {
     };
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box
+            sx={{
+                flexGrow: 1,
+            }}
+        >
             <Slider {...settings}>
                 {highLights.map((item) => (
-                    <div key={item.id}>
-                        <Card sx={{ maxWidth: 345, margin: '0 5px' }}>
-                            <Link to={`events/${item.id}`} style={{ textDecoration: 'none' }}>
+                    <div
+                        key={item.id}
+                    >
+                        <Card
+                            sx={{
+                                maxWidth: 345,
+                                margin: '0 5px'
+                            }}
+                        >
+                            <Link
+                                to={`events/${item.id}`}
+                                style={{
+                                    textDecoration: 'none'
+                                }}
+                            >
                                 <CardActionArea>
                                     <CardMedia
-                                        sx={{ height: 140 }}
+                                        sx={{
+                                            height: 140
+                                        }}
                                         image={item.img}
                                         title={item.name}
                                     />
                                     <CardContent>
-                                        <Typography gutterBottom variant="h5" component="div">
+                                        <Typography
+                                            gutterBottom
+                                            variant="h5"
+                                            component="div"
+                                        >
                                             {item.name}
                                         </Typography>
-                                        <Typography variant="body2" color="text.secondary" align="justify">
+                                        <Typography
+                                            variant="body2"
+                                            color="text.secondary"
+                                            align="justify"
+                                        >
                                             {item.description}
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
                             </Link>
                             <CardActions>
-                                <IconButton aria-label="add to favorites">
+                                <IconButton
+                                    aria-label="add to favorites"
+                                >
                                     <FavoriteIcon />
                                 </IconButton>
-                                <IconButton aria-label="share">
+                                <IconButton
+                                    aria-label="share"
+                                >
                                     <ShareIcon />
                                 </IconButton>
                             </CardActions>

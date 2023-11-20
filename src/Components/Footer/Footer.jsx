@@ -8,7 +8,6 @@ import ListItemText from '@mui/material/ListItemText';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import { grey } from '@mui/material/colors';
 
 function Footer() {
 
@@ -17,18 +16,25 @@ function Footer() {
             align="center"
             sx={{
                 marginTop: '60px',
-                backgroundColor: grey[100],
-                padding: '10px',  
-            }}>
+                padding: '10px',
+                backgroundColor: '#333',
+            }}
+        >
             <List>
                 <ListItemButton>
-                    <ListItemText primary="Services" />
+                    <ListItemText
+                        primary="Services"
+                    />
                 </ListItemButton>
                 <ListItemButton>
-                    <ListItemText primary="Blog" />
+                    <ListItemText
+                        primary="Blog"
+                    />
                 </ListItemButton>
                 <ListItemButton>
-                    <ListItemText primary="Contact us" />
+                    <ListItemText
+                        primary="Contact us"
+                    />
                 </ListItemButton>
             </List>
             <IconButton >
@@ -48,7 +54,11 @@ function Footer() {
             >
                 TechWave
             </Typography>
-            <Typography variant="body2" align="center" color="textSecondary">
+            <Typography
+                variant="body2"
+                align="center"
+                color="textSecondary"
+            >
                 &copy; 2023
             </Typography>
         </Box >

@@ -12,7 +12,7 @@ function Slogan() {
         <Box
             sx={{
                 display: 'flex',
-                margin: { xs: '30px 13px', md: '70px 60px' },
+                padding: { xs: '30px 13px', md: '70px 60px' },
             }}
         >
             <Grid
