@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom'
 import AboutUs from '../AboutUs/AboutUs';
+import Typography from '@mui/material/Typography';
 
 function Slogan() {
 
@@ -26,7 +27,11 @@ function Slogan() {
                         textAlign: 'center',
                     }}
                 >
-                    <h1>Don't miss a thing, join our community now!</h1>
+                    <Typography
+                        variant="h4"
+                    >
+                        Don't miss a thing, join our community now!
+                    </Typography>
                     <Link
                         to={`/events`}
                         style={{
