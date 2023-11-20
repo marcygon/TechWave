@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ThemeProvider } from '../ThemeProvider/ThemeProvider';
 import { styled, alpha } from '@mui/material/styles';
 import AvatarPic from '../AvatarPic/AvatarPic';
 import {
@@ -31,7 +32,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
-function Navbar() {
+function Navbar({ isDarkMode, toggleDarkMode }) {
 
     const [anchorEl, setAnchorEl] = useState(null);
 
@@ -120,8 +121,7 @@ function Navbar() {
     }));
 
     return (
-        <>
-
+        <ThemeProvider isDarkMode={isDarkMode}>
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static">
                     <Toolbar>
@@ -153,10 +153,12 @@ function Navbar() {
                                 inputProps={{ 'aria-label': 'search' }}
                             />
                         </Search>
-                        
+
                         <LightModeIcon />
                         <Switch
                             color="default"
+                            checked={isDarkMode}
+                            onChange={toggleDarkMode}
                         />
                         <DarkModeIcon />
                     </Toolbar>
@@ -204,7 +206,7 @@ function Navbar() {
                     )}
                 </List>
             </Menu>
-        </>
+        </ThemeProvider>
     )
 }
 
