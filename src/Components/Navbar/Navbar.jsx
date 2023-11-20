@@ -17,6 +17,8 @@ import {
     Typography,
     IconButton,
     InputBase,
+    Switch,
+
 } from '@mui/material';
 import EventIcon from '@mui/icons-material/Event';
 import GroupsIcon from '@mui/icons-material/Groups';
@@ -26,7 +28,8 @@ import LoginIcon from '@mui/icons-material/Login';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AssignmentIcon from '@mui/icons-material/Assignment';
-
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 function Navbar() {
 
@@ -140,6 +143,7 @@ function Navbar() {
                         >
                             TECHEVENTS
                         </Typography>
+
                         <Search>
                             <SearchIconWrapper>
                                 <SearchIcon />
@@ -149,6 +153,12 @@ function Navbar() {
                                 inputProps={{ 'aria-label': 'search' }}
                             />
                         </Search>
+                        
+                        <LightModeIcon />
+                        <Switch
+                            color="default"
+                        />
+                        <DarkModeIcon />
                     </Toolbar>
                 </AppBar>
             </Box>
@@ -166,7 +176,6 @@ function Navbar() {
                     horizontal: 'right',
                 }}
             >
-
                 <List style={{ width: '300px' }}>
                     {menuItems.map((menuItem, index) => (
                         <Link to={menuItem.link} style={{ textDecoration: 'none' }} key={index}>
