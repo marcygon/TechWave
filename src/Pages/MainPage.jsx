@@ -7,7 +7,6 @@ function MainPage() {
   return (
     <>
       <Slogan />
-      <AboutUs />
       <Highlight />
     </>
   )
