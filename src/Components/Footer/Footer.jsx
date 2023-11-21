@@ -2,41 +2,23 @@ import React from 'react'
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import { useTheme } from '../ThemeProvider/ThemeProvider'
 
 function Footer() {
+    const { isDarkMode } = useTheme();
 
     return (
         <Box
             align="center"
             sx={{
-                marginTop: '60px',
+                marginTop: '50px',
                 padding: '10px',
-                backgroundColor: '#333',
+                backgroundColor: isDarkMode ? '#222' : 'inherit',
             }}
         >
-            <List>
-                <ListItemButton>
-                    <ListItemText
-                        primary="Services"
-                    />
-                </ListItemButton>
-                <ListItemButton>
-                    <ListItemText
-                        primary="Blog"
-                    />
-                </ListItemButton>
-                <ListItemButton>
-                    <ListItemText
-                        primary="Contact us"
-                    />
-                </ListItemButton>
-            </List>
             <IconButton >
                 <FacebookRoundedIcon />
             </IconButton>
@@ -46,14 +28,6 @@ function Footer() {
             <IconButton>
                 <TwitterIcon />
             </IconButton>
-            <Typography
-                variant="body2"
-                align="center"
-                color="textSecondary"
-                component="p"
-            >
-                TechWave
-            </Typography>
             <Typography
                 variant="body2"
                 align="center"
