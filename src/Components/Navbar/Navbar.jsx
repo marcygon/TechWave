@@ -19,6 +19,7 @@ import {
     IconButton,
     InputBase,
     Switch,
+    useTheme
 
 } from '@mui/material';
 import EventIcon from '@mui/icons-material/Event';
@@ -35,6 +36,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 function Navbar({ isDarkMode, toggleDarkMode }) {
 
     const [anchorEl, setAnchorEl] = useState(null);
+    const theme = useTheme();
 
     const handleMenuOpen = (e) => {
         setAnchorEl(e.currentTarget);
@@ -186,7 +188,14 @@ function Navbar({ isDarkMode, toggleDarkMode }) {
             >
                 <List style={{ width: '300px' }}>
                     {menuItems.map((menuItem, index) => (
-                        <Link to={menuItem.link} style={{ textDecoration: 'none' }} key={index}>
+                        <Link
+                            to={menuItem.link}
+                            key={index}
+                            style={{
+                                textDecoration: 'none',
+                                color: theme.palette.text.primary,
+                            }}
+                        >
                             <ListItem disablePadding onClick={handleMenuClose}>
                                 <ListItemButton>
                                     <ListItemIcon>
